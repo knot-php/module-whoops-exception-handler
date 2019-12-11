@@ -5,8 +5,9 @@ use PHPUnit\Framework\TestCase;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
 
-use KnotModule\WhoopsExceptionHandler\Adapter\WhoopsExceptionHandlerAdapter;
 use KnotLib\Exception\Runtime\InvalidArgumentException;
+
+use KnotPhp\Module\WhoopsExceptionHandler\Adapter\WhoopsExceptionHandlerAdapter;
 
 final class WhoopsExceptionHandlerAdapterTest extends TestCase
 {
