@@ -26,10 +26,9 @@ final class WhoopsExceptionHandlerAdapter implements ExceptionHandlerInterface
     /**
      * {@inheritDoc}
      */
-    public function handleException(Throwable $e): bool
+    public function handleException(Throwable $e)
     {
         echo $this->whoops->handleException($e);
-        return true;
     }
 
 }
