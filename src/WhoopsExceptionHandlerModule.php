@@ -8,26 +8,36 @@ use Throwable;
 use Whoops\Run;
 use Whoops\Handler\PrettyPageHandler;
 
-use KnotLib\Kernel\Module\Components;
+use KnotLib\Kernel\Module\ComponentTypes;
 use KnotLib\Kernel\EventStream\Channels;
 use KnotLib\Kernel\EventStream\Events;
 use KnotLib\Kernel\Exception\ModuleInstallationException;
 use KnotLib\Kernel\Kernel\ApplicationInterface;
-use KnotLib\Kernel\Module\ComponentModule;
+use KnotLib\Kernel\Module\ModuleInterface;
 
 use KnotPhp\Module\WhoopsExceptionHandler\Adapter\WhoopsExceptionHandlerAdapter;
 
-final class WhoopsExceptionHandlerModule extends ComponentModule
+final class WhoopsExceptionHandlerModule implements ModuleInterface
 {
+    /**
+     * Declare dependency on another modules
+     *
+     * @return array
+     */
+    public static function requiredModules() : array
+    {
+        return [];
+    }
+    
     /**
      * Declare dependent on components
      *
      * @return array
      */
-    public static function requiredComponents() : array
+    public static function requiredComponentTypes() : array
     {
         return [
-            Components::EVENTSTREAM,
+            ComponentTypes::EVENTSTREAM,
         ];
     }
 
@@ -38,7 +48,7 @@ final class WhoopsExceptionHandlerModule extends ComponentModule
      */
     public static function declareComponentType() : string
     {
-        return Components::EX_HANDLER;
+        return ComponentTypes::EX_HANDLER;
     }
 
     /**
