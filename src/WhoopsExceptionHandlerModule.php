@@ -1,21 +1,21 @@
 <?php
 declare(strict_types=1);
 
-namespace KnotPhp\Module\WhoopsExceptionHandler;
+namespace knotphp\module\whoopsexceptionhandler;
 
 use Throwable;
 
 use Whoops\Run;
 use Whoops\Handler\PrettyPageHandler;
 
-use KnotLib\Kernel\Module\ComponentTypes;
-use KnotLib\Kernel\EventStream\Channels;
-use KnotLib\Kernel\EventStream\Events;
-use KnotLib\Kernel\Exception\ModuleInstallationException;
-use KnotLib\Kernel\Kernel\ApplicationInterface;
-use KnotLib\Kernel\Module\ModuleInterface;
+use knotlib\kernel\module\ComponentTypes;
+use knotlib\kernel\eventstream\Channels;
+use knotlib\kernel\eventstream\Events;
+use knotlib\kernel\exception\ModuleInstallationException;
+use knotlib\kernel\kernel\ApplicationInterface;
+use knotlib\kernel\module\ModuleInterface;
 
-use KnotPhp\Module\WhoopsExceptionHandler\Adapter\WhoopsExceptionHandlerAdapter;
+use KnotPhp\Module\WhoopsExceptionHandler\adapter\WhoopsExceptionHandlerAdapter;
 
 final class WhoopsExceptionHandlerModule implements ModuleInterface
 {
@@ -28,7 +28,7 @@ final class WhoopsExceptionHandlerModule implements ModuleInterface
     {
         return [];
     }
-    
+
     /**
      * Declare dependent on components
      *
@@ -70,9 +70,9 @@ final class WhoopsExceptionHandlerModule implements ModuleInterface
             // fire event
             $app->eventstream()->channel(Channels::SYSTEM)->push(Events::EX_HANDLER_ADDED, $whoops);
         }
-        catch(Throwable $e)
+        catch(Throwable $ex)
         {
-            throw new ModuleInstallationException(self::class, $e->getMessage(), 0, $e);
+            throw new ModuleInstallationException(self::class, $ex->getMessage(), $ex);
         }
     }
 }

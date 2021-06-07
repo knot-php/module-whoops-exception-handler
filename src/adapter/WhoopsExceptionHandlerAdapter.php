@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace KnotPhp\Module\WhoopsExceptionHandler\Adapter;
+namespace knotphp\module\whoopsexceptionhandler\adapter;
 
 use Throwable;
 use Whoops\Run;
 
-use KnotLib\Kernel\ExceptionHandler\ExceptionHandlerInterface;
+use knotlib\kernel\exceptionhandler\ExceptionHandlerInterface;
 
 final class WhoopsExceptionHandlerAdapter implements ExceptionHandlerInterface
 {

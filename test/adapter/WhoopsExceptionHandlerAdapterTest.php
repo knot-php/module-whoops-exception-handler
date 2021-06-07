@@ -1,13 +1,15 @@
 <?php
 declare(strict_types=1);
 
+namespace knotphp\module\whoopsexceptionhandler\test\adapter;
+
 use PHPUnit\Framework\TestCase;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
 
-use KnotLib\Exception\Runtime\InvalidArgumentException;
+use knotlib\exception\runtime\InvalidArgumentException;
 
-use KnotPhp\Module\WhoopsExceptionHandler\Adapter\WhoopsExceptionHandlerAdapter;
+use knotphp\module\whoopsexceptionhandler\adapter\WhoopsExceptionHandlerAdapter;
 
 final class WhoopsExceptionHandlerAdapterTest extends TestCase
 {
